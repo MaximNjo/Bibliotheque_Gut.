@@ -1,5 +1,3 @@
-<?php session_start();  ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -9,8 +7,8 @@
     <title>Bibliothèque</title>
     <link rel="shortcut icon" href="../Image/logoLivre.png " type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="../Fichier CSS/index.css">
-    <link rel="stylesheet" href="../Fichier CSS/couleur.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="couleur.css">
 </head>
 <body>
      
