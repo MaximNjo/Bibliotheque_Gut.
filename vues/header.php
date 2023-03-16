@@ -22,32 +22,41 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Gestion des genres
+                        Gestion des Genres
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Liste des genres</a>
+                        <a class="dropdown-item" href="#">Ajouter un genre</a>
+                    </div>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                        Gestion des Auteurs 
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Liste des auteurs</a>
+                        <a class="dropdown-item" href="#">Ajouter un auteur</a>
+                        <a class="dropdown-item" href="#">Rechercher un auteur</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Gestion des hauteurs
+                        Gestion des Nationalité
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Liste des nationalité</a>
+                        <a class="dropdown-item" href="#">Ajouter une nationalité</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Gestion des nationalités
+                       Gestion des Continents
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="listeNationalites.php">Listes nationalités</a>
-                        <a class="dropdown-item" href='formNationalite.php?action=Ajouter&num=$nationalite->num'>Ajouter une nationalité</a>
+                        <a class="dropdown-item" href="">Listes des Continents</a>
+                        <a class="dropdown-item" href=''>Ajouter un continent</a>
                     </div>
                 </li>
                 

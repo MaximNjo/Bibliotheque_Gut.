@@ -51,9 +51,9 @@ class Nationalite{
         /**
          * Get the value of numContinent
          */
-        public function getNumContinent() :Continent
+        public function getNumContinent(Continent $continent) :Continent
         {
-                return Continent::findById($this->numContinent)
+                return Continent::findById($this->numContinent);
         }
 
         /**
