@@ -66,7 +66,7 @@ if(!empty($_SESSION['message'])){
   
   <br>
   
-  <a href="formNationalite.php?action=Ajouter" class='btn btn-sucess'> <img src="../Image/plus.png" width="25" > Créer une nationalité</a>
+  <a href="formNationalite.php?action=Ajouter" class='btn btn-sucess'> <img src="image/plus.png" width="25" > Créer une nationalité</a>
   
 
   <br><br>
@@ -154,13 +154,13 @@ foreach($lesNationalites as $nationalite)
   <td>
     <a href='formNationalite.php?action=Modifier&num=$nationalite->num'>
 
-      <img src='../Image/modifier.png'>
+      <img src='image/modifier.png'>
 
     </a>
     
     <a href='#modalSupression' data-toggle='modal'  data-suppression='supprimerNationalite.php?num=$nationalite->num'>
       
-      <img src='../Image/supprimer.png'>
+      <img src='image/supprimer.png'>
     
     </a>
     

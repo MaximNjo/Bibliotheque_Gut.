@@ -4,13 +4,12 @@
 *	Les attributs sont tous statiques, les 4 premiers pour la connexion
 *	$monPdo qui contiendra l'unique instance de la classe
 */
-class MonPdo
-{
+class MonPdo {
 
-private static $serveur='host=btssio.dedyn.io';
-private static $bdd='NJOBOJO_biblio'; 
-private static $user= 'NJOBOJO' ; 
-private static $mdp= '03/03/2004' ;
+private static $serveur='mysql:host=localhost';
+private static $bdd='bibliotheque'; 
+private static $user= 'root' ; 
+private static $mdp= '' ;
 private static $monPdo;
 private static $unPdo = null;
 
@@ -41,4 +40,5 @@ public static function getInstance()
 }
 
 }
+
 ?>
