@@ -4,7 +4,7 @@
   
   <br>
   
-  <a href="formNationalite.php?action=Ajouter" class='btn btn-sucess'> <img src="image/plus.png" width="25" > Créer un continent</a>
+  <a href="index.php?uc=continents&action=add" class='btn btn-sucess'> <img src="image/plus.png" width="25" > Créer un continent</a>
   
 
 <br><br>
@@ -15,7 +15,7 @@
         <thead>
             <tr>
                 <td class="col-md-2"><strong>Numéro</strong></td>
-                <td class="col-md-8"><strong>Libellé</strong></td>
+                <td class="col-md-6"><strong>Libellé</strong></td>
                 <td class="col-md-2"><strong>Actions</strong></td>
             </tr>
         </thead>
@@ -33,13 +33,13 @@
     echo"
     
     <td>
-        <a href='formNationalite.php?action=Modifier&num=' . $continent->getNum() .''>
+        <a href='index.php?uc=continents&action=update&num" . $continent->getNum() ."'>
 
         <img src='image/modifier.png'>
 
         </a>
         
-        <a href='#modalSupression' data-toggle='modal'  data-suppression='supprimerNationalite.php?num=' . $continent->getNum() .' '>
+        <a href='#modalSupression' data-toggle='modal' data-message='Voulez vous vraiment supprimez ce continent?'  data-suppression='index.php?uc=continents&delete" . $continent->getNum() ." '>
         
         <img src='image/supprimer.png'>
         

@@ -70,7 +70,7 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="index.php?uc=continents&action=list">Listes des Continents</a>
-                    <a class="dropdown-item" href=''>Ajouter un continent</a>
+                    <a class="dropdown-item" href='index.php?uc=continents&action=add'>Ajouter un continent</a>
                 </div>
             </li>
             
@@ -80,28 +80,5 @@
 
     <br>
 
-<?php
-
-if(!empty($_SESSION['message'])){
-
-    $mesMessages=$_SESSION['message'];
-    foreach($mesMessages as $key=>$message){
-  
-      echo '
-        <div class="alert alert-' .$key. ' alert-dismissible fade show" role="alert">
-  
-          ' .$message . '
-  
-           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-           </button>
-  
-      </div>';
-    }
-    $_SESSION['message']=[];
-  }
-  
-
-?>
 
     

@@ -1,8 +1,12 @@
-<?php session_start();  
+<?php 
 
-include "vues/header.php";
+ob_start();
+session_start();  
+
 include "modeles/Continent.php";
 include "modeles/connexionPDO.php";
+include "vues/header.php";
+include "vues/messageFlash.php";
 
 
 ?>
