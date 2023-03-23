@@ -33,13 +33,13 @@
     echo"
     
     <td>
-        <a href='index.php?uc=continents&action=update&num" . $continent->getNum() ."'>
+        <a href='index.php?uc=continents&action=update&num=" . $continent->getNum() ."'>
 
         <img src='image/modifier.png'>
 
         </a>
         
-        <a href='#modalSupression' data-toggle='modal' data-message='Voulez vous vraiment supprimez ce continent?'  data-suppression='index.php?uc=continents&delete" . $continent->getNum() ." '>
+        <a href='#modalSupression' data-toggle='modal' data-message='Voulez vous vraiment supprimez ce continent?'  data-suppression='index.php?uc=continents&delete&num=" . $continent->getNum() ." '>
         
         <img src='image/supprimer.png'>
         

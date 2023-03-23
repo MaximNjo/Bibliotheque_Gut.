@@ -80,19 +80,17 @@ class Continent{
     /**
      * Undocumented function
      *AJouter
-        * @param Continent $continent continent à ajouter
-        * @return integer resultat (1 si l'opération à réussi);
+        * @param Continent $Permet d'ajouter 
+        * @return integer 
         * 
         */
 
     public static function add(Continent $continent) :int   
     {
 
-        $req = MonPdo :: getInstance()-> prepare("Insert into continent (libelle) values(:libelle)");
-        $num = $continent->getNum();
-        $libelle = $continent->getLibelle();
+        $req = MonPdo :: getInstance()-> prepare("insert into continent(libelle) values(:libelle)");
+        $libelle=$continent->getLibelle();
         $req -> bindParam(':libelle',$libelle);
-        $req -> bindParam(':num',$num);
         $nb=$req -> execute();
         return $nb;
 
@@ -109,12 +107,12 @@ class Continent{
     public static function update(Continent $continent) :int  
     {
 
-        $req = MonPdo :: getInstance()-> prepare("update continent set libelle = :libelle where num = :id");
-        $libelle = $continent->getLibelle();
-        $num = $continent->getNum();
-        $req -> bindParam(':libelle',$libelle);
-        $req -> bindParam(':id',$num);
-        $nb=$req -> execute();
+        $req = MonPdo::getInstance()->repare("update continent set libelle= :libelle where num= :id");
+        $num=$continent->getNum();
+        $libelle=$continent->getLibelle();
+        $req->bindParam(':id', $num);
+        $req->bindParam(':libelle',$libelle);
+        $nb=$req->execute();
         return $nb;
 
 

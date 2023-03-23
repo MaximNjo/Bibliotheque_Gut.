@@ -13,11 +13,11 @@ switch ($action) {
     break;
     case 'update' :
         $mode = "Modifier";
-        $continent = Continent::findById($_GET{'num'});
+        $continent = Continent::findById($_GET['num']);
         include("vues/formContinent.php");
     break;
     case 'delete' :
-        $continent = Continent::findById($_GET{'num'});
+        $continent = Continent::findById($_GET['num']);
         $nb = Continent::delete($continent);
         if ($nb == 1) {
             
@@ -58,6 +58,7 @@ switch ($action) {
             $_SESSION['message']=["danger" => "Le continent a bien été $message "];
 
         }
+
         header("location: index.php?uc=continents&action=list");
         exit();
     break;
