@@ -1,19 +1,26 @@
 <?php 
 
 class Continent{
-
+    
     private $num;
+    
+    private $libelle;
+    
     /** numéro continent
-    * @var int
-    */
-    public function getNum()
+     * @var int
+     */
+    public function getNum(): int
     {
         return $this->num;
     }
-    
 
+    public function setNum(int $num): self
+    {
+        $this->num = $num;
+        return $this;
+    }
     
-    private $libelle;
+    
     /**
      * Lit le libelle
      * Get the value of libelle
@@ -23,7 +30,8 @@ class Continent{
     {
         return $this->libelle;
     }
-
+    
+    
     /**
      * Set the value of libelle
      *
@@ -32,11 +40,11 @@ class Continent{
     public function setLibelle(string $libelle) : self
     {
         $this->libelle = $libelle;
-
+        
         return $this;
     }
-
-
+    
+    
 
 
     /**
@@ -66,10 +74,10 @@ class Continent{
      * 
      */
 
-    public static function findById(int $id) : Continent
+    public static function findById(int $id) :Continent
     {
 
-        $req = MonPdo :: getInstance()-> prepare("Select * from continent where num =id");
+        $req = MonPdo::getInstance()-> prepare("Select * from continent where num =id");
         $req -> setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
         $req -> bindParam(':id',$id);
         $req -> execute();
@@ -88,10 +96,10 @@ class Continent{
     public static function add(Continent $continent) :int   
     {
 
-        $req = MonPdo :: getInstance()-> prepare("insert into continent(libelle) values(:libelle)");
+        $req = MonPdo::getInstance()-> prepare("insert into continent(libelle) values(:libelle)");
         $libelle=$continent->getLibelle();
         $req -> bindParam(':libelle',$libelle);
-        $nb=$req -> execute();
+        $nb=$req->execute();
         return $nb;
 
     }
@@ -130,7 +138,7 @@ class Continent{
     public static function delete(Continent $continent) :int
     {
 
-        $req = MonPdo :: getInstance()-> prepare("delete from continent where num = :id");
+        $req = MonPdo::getInstance()-> prepare("delete from continent where num = :id");
         $num = $continent->getNum();
         $libelle = $continent->getLibelle();
         $req -> bindParam(':libelle',$libelle);
@@ -147,12 +155,6 @@ class Continent{
     /**
      * Set the value of num
      */
-    public function setNum(int $num): self
-    {
-        $this->num = $num;
-
-        return $this;
-    }
 }
 
 

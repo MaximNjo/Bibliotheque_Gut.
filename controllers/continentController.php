@@ -41,21 +41,21 @@ switch ($action) {
             $nb = Continent::add($continent);
             $message = 'ajouté';
 
-        }else {
+        }else { 
 
-            $continent -> setLibelle($_POST['libelle']);
-            $continent -> setNum($_POST['num']);
+            $continent->setLibelle($_POST['libelle']);
+            $continent->setNum($_POST['num']);
             $nb = Continent::update($continent);
             $message = 'modifié';
         }
-
-        if ($nb == 1) {
+        // Si sa c'est bien passéS
+        if ($nb==1) {
             
-            $_SESSION['message']=["sucess" => "Le continent a bien été $message "];
+            $_SESSION['message']=["sucess"=>"Le continent a bien été $message "];
 
         } else {
             
-            $_SESSION['message']=["danger" => "Le continent a bien été $message "];
+            $_SESSION['message']=["danger"=>"Le continent a bien été $message "];
 
         }
 
@@ -67,5 +67,3 @@ switch ($action) {
 
 
 
-
-?>

@@ -1,15 +1,11 @@
-<div class="titreH2">
-
-<h2> <?php echo $mode ?> un continent </h2>
-
-</div>
+<div class="titreH2"> <h2> <?php echo $mode ?> un continent </h2> </div>
 
 <br>
 
 
 <div class="formulaire">
 
-<form action="index.php?uc=continent&action=valideForm<?php echo $mode; ?>" method="post" >
+<form action="index.php?uc=continents&action=valideForm" <?php echo $mode; ?>" method="post" >
 
 <div class="form-group">
     
@@ -27,8 +23,8 @@
     
     <div class="col"> 
         <a href="index.php?uc=continents&action=list" class="btn nat">Revenir à la listes</a>
-    &nbsp;&nbsp;&nbsp;
-        <button type="submit"> <?php echo $mode; ?>  </button>
+        &nbsp;&nbsp;&nbsp;
+        <button type="submit" class="btn btn-sucess btn-block"> <?php echo $mode; ?>  </button>
     </div>
     
 </div>
