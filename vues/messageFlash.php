@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 if(!empty($_SESSION['message'])){
 
@@ -20,4 +20,4 @@ if(!empty($_SESSION['message'])){
   }
   
 
-?> -->
+?>

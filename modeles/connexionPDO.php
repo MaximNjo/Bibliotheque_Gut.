@@ -1,9 +1,5 @@
 <?php
-/**
-*	Classe d'acces aux donnees Utilise les services de la classe PDO
-*	Les attributs sont tous statiques, les 4 premiers pour la connexion
-*	$monPdo qui contiendra l'unique instance de la classe
-*/
+
 class MonPdo {
 
     private static $serveur='mysql:host=localhost';

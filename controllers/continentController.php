@@ -1,7 +1,7 @@
 <?php 
 
 $action = $_GET['action'];
-switch ($action) {
+switch ($action){
 
     case 'list':
         $lesContinents = Continent::findAll();
@@ -25,8 +25,7 @@ switch ($action) {
 
         } else {
             
-            $_SESSION['message']=["danger" => "Le continent n'a bien été supprimer "];
-
+            $_SESSION['message']=["danger" => "Le continent n'a pas été supprimer "];
         }
         header("location: index.php?uc=continents&action=list");
         exit();
@@ -43,13 +42,13 @@ switch ($action) {
 
         }else { 
 
-            $continent->setLibelle($_POST['libelle']);
             $continent->setNum($_POST['num']);
+            $continent->setLibelle($_POST['libelle']);
             $nb = Continent::update($continent);
             $message = 'modifié';
         }
         // Si sa c'est bien passéS
-        if ($nb==1) {
+        if ($nb == 1) {
             
             $_SESSION['message']=["sucess"=>"Le continent a bien été $message "];
 
