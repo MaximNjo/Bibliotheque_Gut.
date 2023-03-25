@@ -9,20 +9,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript">
-
     $("a[data-suppression]").click(function(){
 
         let message = $(this).attr("data-message");
         let lien = $(this).attr("data-suppression");
-        $("#btnSuppr").attr("href",lien);
+        $("#btn").attr("href", lien);
         $('.modal-body').text(message);
-
-
+        
     });
-
-</script>      
-
+</script>
     
 </body>
 </html>

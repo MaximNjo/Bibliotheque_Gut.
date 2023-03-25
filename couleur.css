@@ -28,3 +28,6 @@ text{
         transition: 0.8s;
 }
 
+.modal-content {
+        color: black;
+    }

@@ -39,11 +39,10 @@
 
         </a>
         
-        <a href='#modalSupression' data-toggle='modal' data-message='Voulez vous vraiment supprimez ce continent?'  data-suppression='index.php?uc=continents&action=delete&num=" . $continent->getNum() ." '>
-        
-          <img src='image/supprimer.png'>
-        
-        </a>
+        <a href='#modalSupression' data-toggle='modal' data-message='Voulez-vous vraiment supprimer ce continent ?'  data-suppression='index.php?uc=continents&action=delete&num=" . $continent->getNum() ." ' id='btnSuppr'>
+		<img src='image/supprimer.png'>
+	</a>
+
          
         </td>
         </tr>
