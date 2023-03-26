@@ -7,7 +7,7 @@
     <title>Bibliothèque</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/index.css">
-    <link rel="stylesheet" href="styles/couleur.css">
+    <link rel="stylesheet" href="styles/indexBis.css">
     <link rel="shortcut icon" href="image/logoLivre.png" type="image/x-icon">
 
 <!-- Bootstrap accueil.php -->
@@ -59,9 +59,8 @@
                     Gestion des Nationalité
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Liste des nationalité</a>
-                    <a class="dropdown-item" href="#">Ajouter une nationalité</a>
+                    <a class="dropdown-item" href="index.php?uc=nationalites&action=list">Liste des nationalités</a>
+                    <a class="dropdown-item" href="index.php?uc=nationalites&action=add">Ajouter une nationalité</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -69,7 +68,7 @@
                     Gestion des Continents
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="index.php?uc=continents&action=list">Listes des Continents</a>
+                    <a class="dropdown-item" href="index.php?uc=continents&action=list">Listes des continents</a>
                     <a class="dropdown-item" href='index.php?uc=continents&action=add'>Ajouter un continent</a>
                 </div>
             </li>

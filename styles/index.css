@@ -146,8 +146,33 @@ background-color: black;
     color: rgb(143, 8, 8);
 
 }
+/* JUMBOTRON */
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+
+    @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+    }
+
 
 /* gestion des images */
+
+.jumbotron.jumbotron-fluid {
+
+    color: black;
+    width: 80%;
+    margin: auto;
+    border-radius: 2px;
+}
 
 img{
     height: 140px;
@@ -170,3 +195,6 @@ img[src="image/supprimer.png"] {
     height: 30px;
     border-radius: 5px;
 }
+
+/* footer */
+

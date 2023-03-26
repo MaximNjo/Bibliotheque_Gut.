@@ -1,7 +1,14 @@
-.couleur{
-        background-color: rgb(255, 255, 255);
+:root{
 
-         
+        --principale: rgb(106, 6, 6);
+
+}
+
+
+.couleur{
+
+        background-color: rgb(255, 255, 255);
+     
 } 
 
 /* Bootstrap accueil.php */
@@ -13,7 +20,7 @@
 
 text{
 
-        color: rgb(106, 6, 6);
+        color: var(--principale);
         font-weight: bold;
         text-decoration: underline;
         text-align: center;
@@ -22,12 +29,18 @@ text{
 }
 
 
-.col-md-4:hover {
+.col-md-3:hover {
     
-        transform: scale(1.03);
+        transform: scale(1.01);
         transition: 0.8s;
 }
 
 .modal-content {
         color: black;
+    }
+
+    /* ligne list  */
+
+    .table-dark td, .table-dark th, .table-dark thead th {
+        border-color: var(--principale);
     }
