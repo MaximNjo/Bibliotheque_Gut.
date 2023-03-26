@@ -80,7 +80,7 @@ class Nationalite{
         {
             
 
-            $texteReq = "select n.num, n.libelle as 'libNation', c.libelle as 'libContinent' from nationalite n, continent c where n.numContinent=c.num";
+            $texteReq = "select n.num as numero, n.libelle as 'libNation', c.libelle as 'libContinent' from nationalite n, continent c where n.numContinent=c.num";
             if($libelle != ""){
                 $texteReq .= " and n.libelle like '%" . $libelle . "%'";
             }
