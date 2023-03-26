@@ -18,7 +18,7 @@
                     </div>
                     <!-- Listes déroulantes des Continents -->
                     <div class="col">
-                        
+                           
                         <select name="continent" class="form-control" onChange="document.getElementById('formRecherche').submit()">
                             <?php      
                                 echo "<option value='Tous'> Tous les continents</option>";
