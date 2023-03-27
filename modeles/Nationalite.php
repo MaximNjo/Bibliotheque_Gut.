@@ -53,7 +53,7 @@ class Nationalite{
          */
         public function getNumContinent(Continent $continent) :Continent
         {
-                return Continent::findById($this->numContinent);
+            return Continent::findById($this->numContinent);
         }
 
         /**
@@ -63,14 +63,14 @@ class Nationalite{
          */
         public function setNumContinent(Continent $continent) :self
         {
-                $this->numContinent = $continent->getNum();
+            $this->numContinent = $continent->getNum();
 
-                return $this;
+            return $this;
         }
         
 
         /**
-         * 
+         * Retourne les nationalités
          * @return Nationalite[] 
          * 
          */
@@ -79,7 +79,6 @@ class Nationalite{
         public static function findAll(?string $libelle="", ?string $continent="Tous") : array
         {
             
-
             $texteReq = "select n.num as numero, n.libelle as 'libNation', c.libelle as 'libContinent' from nationalite n, continent c where n.numContinent=c.num";
             if($libelle != ""){
                 $texteReq .= " and n.libelle like '%" . $libelle . "%'";
@@ -89,10 +88,10 @@ class Nationalite{
                 $texteReq .= " and c.num =" .$continent;
             }
             $texteReq.= " order by n.libelle";
-            $req = MonPdo :: getInstance()-> prepare($texteReq);
+            $req = MonPdo::getInstance()->prepare($texteReq);
             $req -> setFetchMode(PDO::FETCH_OBJ);
             $req -> execute();
-            $lesResultats=$req->fetchAll();
+            $lesResultats = $req -> fetchAll();
             return $lesResultats;
 
         }
@@ -109,7 +108,7 @@ class Nationalite{
         public static function findById(int $id) : Nationalite
         {
 
-            $req = MonPdo :: getInstance()-> prepare("Select * from nationalite where num =id");
+            $req = MonPdo::getInstance()-> prepare("Select * from nationalite where num =id");
             $req -> setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Nationalite');
             $req -> bindParam(':id',$id);
             $req -> execute();

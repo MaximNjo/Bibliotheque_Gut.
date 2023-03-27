@@ -1,6 +1,23 @@
 <div class="container">
 
-    <h2>Listes des Nationalités</h2>
+    <!-- Titre + btn ajout nationalité -->
+    <div class="row">
+        <div class="col-9">
+
+            <h2>Listes des Nationalités</h2>
+            
+        </div>
+        <div class="col-3">
+
+            <a href="index.php?uc=nationalites&action=Ajouter" class="btn btn-sucess">
+
+                <img src="image/plus.png"> Créer une Nationalité
+                
+            </a>
+
+        </div>
+    </div>
+
 
     <br>
 
@@ -21,6 +38,7 @@
                            
                         <select name="continent" class="form-control" onChange="document.getElementById('formRecherche').submit()">
                             <?php      
+                            
                                 echo "<option value='Tous'> Tous les continents</option>";
                                 foreach($lesContinents as $continent){
                                     
@@ -34,17 +52,16 @@
                                 }
                             ?>
                     </select>
+
                 </div>
                 <!-- BUTTON RECHERCHER-->
                 <div class="col">
                     
-                    <button type="submit" class="btn btn-success btn-block">Rechercher</button>
+                    <button type="submit" class="btn btn-success">Rechercher</button>
                     
                 </div>
-                
-            </div>
-            </div>
-            
+              </div>
+            </div>    
         </form>
         
                 <!-- AFFICHAGE  -->

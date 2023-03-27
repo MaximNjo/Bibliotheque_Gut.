@@ -7,12 +7,12 @@ switch ($action){
         // Traitement du formulaire de recherche 
         $libelle="";
         $continentSel="Tous";
-        if (!empty($_POST['libelle'])|| !empty($_POST['continents'])){
+        if (!empty($_POST['libelle']) || !empty($_POST['continents'])){
             
             $libelle = $_POST['libelle'];
             $continentSel = $_POST['continent'];
         }
-        $lesContinents=Continent::findAll();
+        $lesContinents = Continent::findAll();
         $lesNationalites = Nationalite::findAll($libelle, $continentSel);
         include('vues/nationalite/listeNationalite.php');
     break;
