@@ -7,7 +7,7 @@ switch ($action){
         // Traitement du formulaire de recherche 
         $libelle="";
         $continentSel="Tous";
-        if (!empty($_POST['libelle']) || !empty($_POST['continents'])){
+        if (!empty($_POST['libelle']) || !empty($_POST['continent'])){
             
             $libelle = $_POST['libelle'];
             $continentSel = $_POST['continent'];

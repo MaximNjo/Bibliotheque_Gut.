@@ -30,7 +30,7 @@
                     <!-- Champs Saisir libelle -->
                     <div class="col">
                         
-                        <input type="text" class="form-control" id="libelle" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le libellé" name="libelle"  value= "<?php echo $libelle; ?>">
+                        <input type="text" class="form-control" autofocus id="libelle" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le libellé" name="libelle"  value= "<?php echo $libelle; ?>">
                         
                     </div>
                     <!-- Listes déroulantes des Continents -->
@@ -42,10 +42,9 @@
                                 echo "<option value='Tous'> Tous les continents</option>";
                                 foreach($lesContinents as $continent){
                                     
-                                    $selection = ' $continent->getNum() ' == $continentSel ? 'selected' : '';
+                                    $selection = $continent->getNum() == intval($continentSel) ? 'selected' : '';
                                     echo " 
-
-                                     <option value='" . $continent->getNum() . "'". $selection.">". $continent->getLibelle() ."</option>
+                                     <option value='" . $continent->getNum() . "' ". $selection." >". $continent->getLibelle() ."</option>
                                     
                                     ";
                                         
