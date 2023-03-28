@@ -51,7 +51,7 @@ class Nationalite{
         /**
          * Get the value of numContinent
          */
-        public function getNumContinent(Continent $continent) :Continent
+        public function getContinent(Continent $continent) :Continent
         {
             return Continent::findById($this->numContinent);
         }
@@ -61,7 +61,7 @@ class Nationalite{
          *
          * @return  self
          */
-        public function setNumContinent(Continent $continent) :self
+        public function setContinent(Continent $continent) :self
         {
             $this->numContinent = $continent->getNum();
 

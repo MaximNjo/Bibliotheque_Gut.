@@ -9,7 +9,7 @@
         </div>
         <div class="col-3">
 
-            <a href="index.php?uc=nationalites&action=Ajouter" class="btn btn-sucess">
+            <a href="index.php?uc=nationalites&action=add" class="btn btn-sucess">
 
                 <img src="image/plus.png"> Créer une Nationalité
                 
@@ -88,11 +88,11 @@
                         echo"
                             <td>
         
-                                <a href='formNationalite.php?action=Modifier&num=$nationalite->numero'>
+                                <a href='index.php?uc=nationalites&action=update&num=".$nationalite->numero."'>
                                     <img src='image/modifier.png'>
                                 </a>
                                 
-                                <a href='#modalSupression' data-toggle='modal'  data-suppression='supprimerNationalite.php?num=$nationalite->numero'>
+                                <a href='#modalSupression' data-toggle='modal'  data-suppression='index.php?uc=nationalites&action=delete&num='" .$nationalite->numero."'>
                                 <img src='image/supprimer.png'>
                                 </a>
                             

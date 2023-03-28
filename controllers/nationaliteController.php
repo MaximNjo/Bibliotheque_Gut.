@@ -18,10 +18,12 @@ switch ($action){
     break;
     case 'add' : 
         $mode = "Ajouter";
+        $lesContinents = Continent::findAll();
         include("vues/nationalite/formNationalite.php");
     break;
     case 'update' :
         $mode = "Modifier";
+        $lesContinents = Continent::findAll();
         $nationalite = Nationalite::findById($_GET['num']);
         include("vues/nationalite/formNationalite.php");
     break;
@@ -39,20 +41,21 @@ switch ($action){
         header("location: index.php?uc=nationalites&action=list");
         exit();
     break;
-    case 'valideForm' :
+    case 'validForm' :
 
         $nationalite = new Nationalite();
-
+        $continent = Continent::findById($_POST['continent']);
         if (empty($_POST['num'])) {
             
-            $nationalite->setLibelle($_POST['libelle']);
+            $nationalite->setLibelle($_POST['libelle'])
+                        ->setContinent($continent);
             $nb = Nationalite::add($nationalite);
             $message = 'ajouté';
 
         }else { 
 
-            $nationalite->setNum($_POST['num']);
-            $nationalite->setLibelle($_POST['libelle']);
+            $nationalite->setNum($_POST['num'])
+                        ->setLibelle($_POST['libelle']);
             $nb = Nationalite::update($nationalite);
             $message = 'modifié';
         }

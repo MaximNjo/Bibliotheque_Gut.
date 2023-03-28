@@ -12,18 +12,11 @@
 
 // script liste nationalité
 
-// document.getElementById('formRecherche').submit();
+// let yop = document.getElementById("libelle");
+// let formRecherche = document.getElementById("formRecherche");
 
+// yop.addEventListener("input", function() {
 
-const continentSelect = document.querySelector('select[name="continent"]');
+//   formRecherche.submit();
 
-continentSelect.addEventListener('change', function() {
-  const continentNum = continentSelect.value;
-  performSearch(continentNum);
-});
-
-function performSearch(continentNum) {
-  // Code to perform search using the selected continent number
-  // For example, you could send an AJAX request to a server
-  // and display the search results on the page
-}
+// });
