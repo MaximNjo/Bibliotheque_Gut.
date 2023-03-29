@@ -43,7 +43,7 @@ switch ($action){
     break;
     case 'validForm' :
 
-        $nationalite = new Nationalite();
+        $nationalite = new Nationalite($num, $libelle, $numContinent);
         $continent = Continent::findById($_POST['continent']);
         if (empty($_POST['num'])) {
             
