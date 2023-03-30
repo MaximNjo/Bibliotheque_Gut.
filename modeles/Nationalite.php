@@ -6,19 +6,17 @@ class Nationalite{
     /** numéro du nationalite
      * @var int
      */
-
+    
         private $num;
+        private $libelle;
+        private $numContinent;
+
+
         public function getNum()
         {
             return $this->num;
         }
-        
 
-        
-        
-
-        
-        private $libelle;
         /**
          * libelle du Nationalite
          * Get the value of libelle
@@ -47,7 +45,10 @@ class Nationalite{
          * @var int
          */
 
-        private $numContinent;
+        public function numContinent(): int
+        {
+            return $this->numContinent;
+        }
 
         /**
          * Get the value of numContinent
@@ -106,17 +107,16 @@ class Nationalite{
          * 
          */
 
-        public static function findById(int $id) : Nationalite
-        {
-
-            $req = MonPdo::getInstance()-> prepare("Select * from nationalite where num =id");
-            $req -> setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Nationalite');
-            $req -> bindParam(':id',$id);
-            $req -> execute();
-            $leResultats=$req->fetch();
-            return $leResultats;
-
-        }
+         public static function findById(int $id) : Nationalite
+         {
+             $req = MonPdo::getInstance()->prepare("SELECT * FROM nationalite WHERE num = :id");
+             $req->bindParam(':id', $id);
+             $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Nationalite');
+             $req->execute();
+             $leResultat = $req->fetch();
+             return $leResultat;
+         }
+         
         /**
          * Undocumented function
          *AJouter
@@ -125,15 +125,15 @@ class Nationalite{
          * 
          */
 
-        public static function add(Nationalite $nationalite) :int   
-        {
+         public static function add(Nationalite $nationalite): int {
 
-            $req = MonPdo :: getInstance()-> prepare("Insert into nationalite (libelle,numContinent) values(:libelle, :numContinent)");
-            $req -> bindParam(':libelle',$nationalite->getLibelle());
-            $req -> bindParam(':numContinent',$nationalite->numContinent());
-            $nb=$req -> execute();
+            $req = MonPdo::getInstance()->prepare("Insert into nationalite (libelle,numContinent) values(:libelle, :numContinent)");
+            $lib = $nationalite->getLibelle();
+            $numCont = $nationalite->numContinent();
+            $req->bindParam(':libelle', $lib);
+            $req->bindParam(':numContinent', $numCont);
+            $nb = $req->execute();
             return $nb;
-
         }
 
          /**
@@ -144,25 +144,22 @@ class Nationalite{
          * 
          */
 
-        public static function update(Nationalite $nationalite) :int  
-        {
-
-            $req = MonPdo :: getInstance()-> prepare("update nationalite set libelle = :libelle, numContinent=:numCont where num = :id");
-            $id = $nationalite->getNum();
-            $lib =$nationalite->getLibelle();
-            $numContinent = $nationalite->getContinent()->getNum();
-            $req -> bindParam(':id',$id);
-            $req -> bindParam(':libelle',$lib);
-            $req -> bindParam(':numCont',$numContinent);
-            $nb=$req -> execute();
-            return $nb;
-
-
-        }
+         public static function update(Nationalite $nationalite) :int  
+         {
+             $req = MonPdo::getInstance()->prepare("update nationalite set libelle = :libelle, numContinent=:numCont where num = :id");
+             $id = $nationalite->getNum();
+             $lib = $nationalite->getLibelle();
+             $numCont = $nationalite->numContinent();
+             $req->bindParam(':id', $id);
+             $req->bindParam(':libelle', $lib);
+             $req->bindParam(':numCont', $numCont);
+             $nb = $req->execute();
+             return $nb;
+         }
 
          /**
          * Undocumented function
-         * Suppprimers
+         * Suppprimer
          * @param Nationalite $nationalite
          * @return integer resultat 
          * 
@@ -183,7 +180,6 @@ class Nationalite{
 
 
 
-
         /**
          * Set the value of num
          *
@@ -191,10 +187,11 @@ class Nationalite{
          */
         public function setNum($num)
         {
-                $this->num = $num;
+            $this->num = $num;
 
-                return $this;
+            return $this;
         }
+
 }
 
 

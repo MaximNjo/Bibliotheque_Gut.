@@ -24,11 +24,11 @@ switch ($action){
     case 'update' :
         $mode = "Modifier";
         $lesContinents = Continent::findAll();
-        $laNationalite = Nationalite::findById($_GET['num']);
+        $nationalite = Nationalite::findById($_GET['num']);
         include("vues/nationalite/formNationalite.php");
     break;
     case 'delete' :
-        $laNationalite = Nationalite::findById($_GET['num']);
+        $nationalite = Nationalite::findById($_GET['num']);
         $nb = Nationalite::delete($nationalite);
         if ($nb == 1) {
             
@@ -55,11 +55,13 @@ switch ($action){
         }else { 
 
             $nationalite->setNum($_POST['num'])
-                        ->setLibelle($_POST['libelle']);
+                        ->setLibelle($_POST['libelle'])
+                        ->setContinent($continent)       
+                        ;
             $nb = Nationalite::update($nationalite);
             $message = 'modifié';
         }
-        // Si sa c'est bien passés
+        // Si sa c'est bien passéS
         if ($nb == 1) {
             
             $_SESSION['message']=["sucess"=>"La nationalité a bien été $message "];
@@ -75,6 +77,5 @@ switch ($action){
     break;
     
 }
-
 
 
