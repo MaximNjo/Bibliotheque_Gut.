@@ -12,6 +12,7 @@ class Nationalite{
         {
             return $this->num;
         }
+        
 
         
         
@@ -51,7 +52,7 @@ class Nationalite{
         /**
          * Get the value of numContinent
          */
-        public function getNumContinent(Continent $continent) :Continent
+        public function getContinent() :Continent
         {
             return Continent::findById($this->numContinent);
         }
@@ -61,7 +62,7 @@ class Nationalite{
          *
          * @return  self
          */
-        public function setNumContinent(Continent $continent) :self
+        public function setContinent(Continent $continent) :self
         {
             $this->numContinent = $continent->getNum();
 
@@ -146,10 +147,13 @@ class Nationalite{
         public static function update(Nationalite $nationalite) :int  
         {
 
-            $req = MonPdo :: getInstance()-> prepare("update nantionalite set libelle = :libelle, numContinent=: where num = :id");
-            $req -> bindParam(':id',$nationalite->getNum());
-            $req -> bindParam(':libelle',$nationalite->getLibelle());
-            $req -> bindParam(':numContinent',$nationalite->numContinent());
+            $req = MonPdo :: getInstance()-> prepare("update nationalite set libelle = :libelle, numContinent=:numCont where num = :id");
+            $id = $nationalite->getNum();
+            $lib =$nationalite->getLibelle();
+            $numContinent = $nationalite->getContinent()->getNum();
+            $req -> bindParam(':id',$id);
+            $req -> bindParam(':libelle',$lib);
+            $req -> bindParam(':numCont',$numContinent);
             $nb=$req -> execute();
             return $nb;
 
@@ -158,7 +162,7 @@ class Nationalite{
 
          /**
          * Undocumented function
-         * Suppprimer
+         * Suppprimers
          * @param Nationalite $nationalite
          * @return integer resultat 
          * 
@@ -178,6 +182,19 @@ class Nationalite{
         }
 
 
+
+
+        /**
+         * Set the value of num
+         *
+         * @return  self
+         */
+        public function setNum($num)
+        {
+                $this->num = $num;
+
+                return $this;
+        }
 }
 
 

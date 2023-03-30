@@ -11,4 +11,16 @@
 
 
 // script liste nationalité
+<<<<<<< HEAD
 // document.getElementById('formRecherche').submit()
+=======
+
+// let yop = document.getElementById("libelle");
+// let formRecherche = document.getElementById("formRecherche");
+
+// yop.addEventListener("input", function() {
+
+//   formRecherche.submit();
+
+// });
+>>>>>>> 98a6cc53adbcd05d0974aba4a0d5103e787df0c8

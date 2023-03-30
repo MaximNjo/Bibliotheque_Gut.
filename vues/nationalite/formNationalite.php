@@ -1,10 +1,15 @@
 <div class="container">
-    <form action="valideFormNationalite.php?action=<?php echo $action; ?>" method="post" >
+    <h2> <?php echo $mode ?> une nationalité </h2>
+    <form action="index.php?uc=nationalites&action=validForm" method="post" >
 
         <div class="form-group">
             
             <label for="libelle">Libellé</label>
-            <input type="text" class="form-control" id="libelle" placeholder="Saisir le libellé" name="libelle"  value= "<?php if($action == "Modifier") { echo $lesNationalites->libelle; } ?>">
+            <input type="text" class="form-control" id="libelle" placeholder="Saisir le libellé" name="libelle"  value= "<?php if($mode == "Modifier") {
+                
+                echo $laNationalite->getLibelle(); } 
+                
+                ?>">
             
         </div>
 
@@ -17,10 +22,11 @@
             <?php        
             
             foreach($lesContinents as $continent){
-                
-                $selection = $continent->num == $lesNationalites->numContinent ? 'selected' : '';
+                if($mode == "Modifier"){
+                    $selection = $continent->getNum() == $lesNationalites->getContinent()->getNum() ? 'selected' : '';
+                }
                 echo " 
-                <option value='$continent->num' $selection> $continent->libelle</option>
+                <option value='" . $continent->getNum(). "'" .$selection. ">". $continent->getLibelle()."</option>
                 
                 ";
                 
@@ -30,13 +36,17 @@
             </select>
         </div>
 
-        <input type="hidden" id="num" name="num" value=" <?php if($action == "Modifier") { echo $lesNationalites->num; } ?>" >
+        <input type="hidden" id="num" name="num" value=" <?php if($mode == "Modifier") { 
+            
+            echo $lesNationalites->getNum; 
+            
+            } ?>" >
         <div class="row">
             
             <div class="col"> 
-                <a href="listeNationalites.php" class="btn nat">Revenir à la listes</a>
+                <a href="index.php?uc=nationalites&action=list" class="btn nat">Revenir à la listes</a>
             &nbsp;&nbsp;&nbsp;
-                <button type="submit"> <?php echo $action; ?>  </button>
+                <button type="submit"> <?php echo $mode; ?>  </button>
             </div>
             
         </div>
