@@ -8,7 +8,7 @@
     include "modeles/nationalite.php";
     include "modeles/connexionPDO.php";
     include "vues/messageFlash.php";
-
+    
 
     // uc = unité de contrôle (ou tu choisis)
 
@@ -33,4 +33,6 @@
     include "vues/footer.php";
 
 ?>
+
+
 

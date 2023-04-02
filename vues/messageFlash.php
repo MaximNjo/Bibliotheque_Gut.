@@ -31,7 +31,7 @@ if(!empty($_SESSION['message'])){
 
 				</div>
 				<div class="modal-body">
-					Voulez-vous vraiment supprimer cet élément ?
+					Voulez-vous vraiment supprimer cette élément ?
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

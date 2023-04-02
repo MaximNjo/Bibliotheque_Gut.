@@ -5,7 +5,7 @@ switch ($action){
 
     case 'list':
         // Traitement du formulaire de recherche 
-        $libelle="";
+        $libelle = "";
         $continentSel="Tous";
         if (!empty($_POST['libelle']) || !empty($_POST['continent'])){
             
@@ -28,8 +28,10 @@ switch ($action){
         include("vues/nationalite/formNationalite.php");
     break;
     case 'delete' :
-        $nationalite = Nationalite::findById($_GET['num']);
+
+        $nationalite = Nationalite::findById(intval($_GET['num']));
         $nb = Nationalite::delete($nationalite);
+
         if ($nb == 1) {
             
             $_SESSION['message']=["sucess" => "Le nationalite a bien été supprimé "];
@@ -38,6 +40,7 @@ switch ($action){
             
             $_SESSION['message']=["danger" => "Le nationalite n'a pas été supprimer "];
         }
+        
         header("location: index.php?uc=nationalites&action=list");
         exit();
     break;
