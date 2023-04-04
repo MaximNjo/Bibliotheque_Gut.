@@ -39,7 +39,7 @@
           <div class="card mb-4 shadow-sm">
               <img src="image/genres.webp" ><text>Genres</text>
               <div class="card-body">
-                <p class="card-text"><a href="">Bibliothèque des genres</a></p>
+                <p class="card-text"><a href="index.php?uc=genres&action=list">Bibliothèque des genres</a></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>

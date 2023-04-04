@@ -41,8 +41,8 @@
                     Gestion des Genres
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Liste des genres</a>
-                    <a class="dropdown-item" href="#">Ajouter un genre</a>
+                    <a class="dropdown-item" href="index.php?uc=genres&action=list">Liste des genres</a>
+                    <a class="dropdown-item" href="index.php?uc=genres&action=add">Ajouter un genre</a>
                 </div>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">

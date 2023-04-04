@@ -6,6 +6,7 @@
     include "vues/header.php";
     include "modeles/continent.php";
     include "modeles/nationalite.php";
+    include "modeles/genre.php";
     include "modeles/connexionPDO.php";
     include "vues/messageFlash.php";
     
@@ -24,6 +25,9 @@
         break;
         case 'nationalites' :
             include('controllers/nationaliteController.php');
+        break;
+        case 'genres' :
+            include('controllers/genreController.php');
         break;
 
     }

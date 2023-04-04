@@ -28,8 +28,9 @@ switch ($action){
         include("vues/nationalite/formNationalite.php");
     break;
     case 'delete' :
+        
 
-        $nationalite = Nationalite::findById(intval($_GET['num']));
+        $nationalite = Nationalite::findById($_GET['num']);
         $nb = Nationalite::delete($nationalite);
 
         if ($nb == 1) {
