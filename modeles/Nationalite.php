@@ -101,6 +101,7 @@ class Nationalite{
         $req->execute();
         $leResultat = $req->fetch();
         return $leResultat;
+        
         }
         
     /**
