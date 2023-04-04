@@ -1,6 +1,7 @@
 # Bibliotheque_Gut.
 TP BTS SIO
 - [x] Continent 
-- [ ] Nationalite
+- [x] Nationalite
+- [x] Genre
 - [ ] Auteurs
-- [ ] Genre
+- [ ] Livre
