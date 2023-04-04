@@ -4,11 +4,13 @@
     session_start();  
 
     include "vues/header.php";
+    include "vues/messageFlash.php";
+    
     include "modeles/continent.php";
     include "modeles/nationalite.php";
+    include "modeles/auteur.php";
     include "modeles/genre.php";
     include "modeles/connexionPDO.php";
-    include "vues/messageFlash.php";
     
 
     // uc = unité de contrôle (ou tu choisis)
@@ -28,6 +30,9 @@
         break;
         case 'genres' :
             include('controllers/genreController.php');
+        break;
+        case 'auteurs' :
+            include('controllers/auteurController.php');
         break;
 
     }

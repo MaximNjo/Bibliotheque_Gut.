@@ -35,7 +35,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item dropdown">
+            
+            <!-- Genres -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     Gestion des Genres
@@ -44,16 +45,28 @@
                     <a class="dropdown-item" href="index.php?uc=genres&action=list">Liste des genres</a>
                     <a class="dropdown-item" href="index.php?uc=genres&action=add">Ajouter un genre</a>
                 </div>
-                <li class="nav-item dropdown">
+            </li>
+            <!-- Livre -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Gestion des Livres
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="index.php?uc=genres&action=list">Liste des livres</a>
+                    <a class="dropdown-item" href="index.php?uc=genres&action=add">Ajouter un livres</a>
+                </div>
+            </li>
+            <!-- Auteurs -->
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     Gestion des Auteurs 
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Liste des auteurs</a>
-                    <a class="dropdown-item" href="#">Ajouter un auteur</a>
-                    <a class="dropdown-item" href="#">Rechercher un auteur</a>
+                    <a class="dropdown-item" href="index.php?uc=auteurs&action=list">Liste des auteurs</a>
+                    <a class="dropdown-item" href="index.php?uc=auteurs&action=add">Ajouter un auteur</a>
                 </div>
             </li>
+            <!-- Nationalités -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     Gestion des Nationalité
@@ -63,6 +76,7 @@
                     <a class="dropdown-item" href="index.php?uc=nationalites&action=add">Ajouter une nationalité</a>
                 </div>
             </li>
+            <!-- Continents -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                     Gestion des Continents
