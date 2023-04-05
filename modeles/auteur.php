@@ -66,7 +66,7 @@ class Auteur{
     public static function findAll(?string $libelle="", ?string $continent="Tous") : array
     {
         
-        $texteReq = "select n.num as numero, a.nom as 'nom', a.prenom as 'prenom' from auteur n, continent c where n.numContinent=c.num";
+        $texteReq = "select a.num as numero, a.nom as 'nom', a.prenom as 'prenom' from auteur a, nationalite n where a.numNationalite=n.num";
         if($libelle != ""){
             $texteReq .= " and a.nom like '%" . $libelle . "%'";
         }
