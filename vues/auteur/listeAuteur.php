@@ -4,14 +4,14 @@
     <div class="row">
         <div class="col-9">
 
-            <h2>Listes des Nationalités</h2>
+            <h2>Listes des Auteurs</h2>
             
         </div>
         <div class="col-3">
 
             <a href="index.php?uc=auteurs&action=add" class="btn btn-sucess">
 
-                <img src="image/plus.png"> Créer une Nationalité
+                <img src="image/plus.png"> Créer un Auteur
                 
             </a>
 
@@ -30,7 +30,12 @@
                     <!-- Champs Saisir libelle -->
                     <div class="col">
                         
-                        <input type="text" class="form-control" autofocus id="libelle" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le libellé" name="libelle"  value= "<?php echo $libelle; ?>">
+                        <input type="text" class="form-control"  id="libelle" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le nom" name="libelle"  value= "<?php echo $libelle; ?>">
+                        
+                    </div>
+                    <div class="col">
+                        
+                        <input type="text" class="form-control"  id="libelle" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le prenom" name="libelle"  value= "<?php echo $libelle; ?>">
                         
                     </div>
 
@@ -39,7 +44,7 @@
                     <select name="continent" class="form-control" onChange="document.getElementById('formRecherche').submit()">
                         <?php      
                             
-                            echo "<option value='Tous'> Tous les continents</option>";
+                            echo "<option value='Tous'> Tous les continents </option>";
                             foreach($lesContinents as $continent){
                                 
                                 $selection = $continent->getNum() == intval($continentSel) ? 'selected' : '';
@@ -50,6 +55,8 @@
                     </select>
 
                 </div>
+
+      
 
                 <!-- BUTTON RECHERCHER-->
                 <div class="col">
@@ -68,7 +75,8 @@
                 <td class="col-md-2"><strong>Numéro</strong></td>
                 <td class="col-md-4"><strong>Nom</strong></td>
                 <td class="col-md-3"><strong>Prenom</strong></td>
-                <td class="col-md-2"><strong>NumNationalte</strong></td>
+                <td class="col-md-3"><strong>Nationalites</strong></td>
+                <td class="col-md-2"><strong>Actions</strong></td>
             </tr>
         </thead>
             
@@ -81,8 +89,9 @@
             
             echo "<tr>";
             echo "<td>$auteur->numero</td>";
-            echo "<td>$auteur->libNation</td>";
-            echo "<td>$auteur->libContinent</td>";
+            echo "<td>$auteur->nom</td>";
+            echo "<td>$auteur->prenom</td>";
+            echo "<td>$auteur->libNationalite</td>";
             echo"
                 <td>
 
