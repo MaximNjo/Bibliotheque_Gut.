@@ -4,7 +4,7 @@ class Auteur{
    
     private $num;
     private $libelle;
-    private $numContinent;
+    private $numNationalite;
 
     // Getter de num
     public function getNum()
@@ -35,21 +35,21 @@ class Auteur{
     }
 
     
-    public function numContinent(): int
+    public function numNationalite(): int
     {
-        return $this->numContinent;
+        return $this->numNationalite;
     }
 
   
-    public function getContinent() :Continent
+    public function getNationalite() :Nationalite
     {
-        return Continent::findById($this->numContinent);
+        return Nationalite::findById($this->numNationalite);
     }
 
 
-    public function setContinent(Continent $continent) :self
+    public function setNationalite(Nationalite $Nationalite) :self
     {
-        $this->numContinent = $continent->getNum();
+        $this->numNationalite = $Nationalite->getNum();
 
         return $this;
     }
@@ -63,18 +63,18 @@ class Auteur{
      */
 
 
-    public static function findAll(?string $libelle="", ?string $continent="Tous") : array
+    public static function findAll(?string $libelle="", ?string $nationalite="Tous") : array
     {
         
-        $texteReq = "select n.num as numero, a.nom as 'nom', a.prenom as 'prenom' from auteur n, continent c where n.numContinent=c.num";
+        $texteReq = "select a.num as numero, a.nom as 'nom', a.prenom as 'prenom', n.libelle as 'libNationalite' from auteur a, nationalite n where a.numNationalite=n.num";
         if($libelle != ""){
             $texteReq .= " and a.nom like '%" . $libelle . "%'";
         }
         
-        if($continent != "Tous"){ 
-            $texteReq .= " and c.num =" .$continent;
+        if($nationalite != "Tous"){ 
+            $texteReq .= " and c.num =" .$nationalite;
         }
-        $texteReq.= " order by n.libelle";
+        $texteReq.= " order by a.num";
         $req = MonPdo::getInstance()->prepare($texteReq);
         $req -> setFetchMode(PDO::FETCH_OBJ);
         $req -> execute();
@@ -107,18 +107,18 @@ class Auteur{
     /**
      * Undocumented function
      *AJouter
-        * @param Auteur $auteur continent à ajouter
+        * @param Auteur $auteur Nationalite à ajouter
         * @return integer resultat (1 si l'opération à réussi);
         * 
         */
 
         public static function add(Auteur $auteur): int {
 
-        $req = MonPdo::getInstance()->prepare("Insert into auteur (libelle,numContinent) values(:libelle, :numContinent)");
+        $req = MonPdo::getInstance()->prepare("Insert into auteur (libelle,numNationalite) values(:libelle, :numNationalite)");
         $lib = $auteur->getLibelle();
-        $numCont = $auteur->numContinent();
+        $numCont = $auteur->numNationalite();
         $req->bindParam(':libelle', $lib);
-        $req->bindParam(':numContinent', $numCont);
+        $req->bindParam(':numNationalite', $numCont);
         $nb = $req->execute();
         return $nb;
     }
@@ -126,17 +126,17 @@ class Auteur{
         /**
      * Undocumented function
      *Modifier
-        * @param Auteur $Auteur continent à modifier
+        * @param Auteur $Auteur Nationalite à modifier
         * @return integer resultat (1 si l'opération à réussi, 0 sinon);
         * 
         */
 
         public static function update(Auteur $auteur) :int  
         {
-            $req = MonPdo::getInstance()->prepare("update auteur set libelle = :libelle, numContinent=:numCont where num = :id");
+            $req = MonPdo::getInstance()->prepare("update auteur set libelle = :libelle, numNationalite=:numCont where num = :id");
             $id = $auteur->getNum();
             $lib = $auteur->getLibelle();
-            $numCont = $auteur->numContinent();
+            $numCont = $auteur->numNationalite();
             $req->bindParam(':id', $id);
             $req->bindParam(':libelle', $lib);
             $req->bindParam(':numCont', $numCont);
