@@ -6,6 +6,7 @@ class Auteur{
     private $nom;
     private $prenom;
     private $numNationalite;
+    private $libelle;
 
     // Getter de num
     public function getNum()
@@ -65,7 +66,20 @@ class Auteur{
         return $this;
     }
     
-    
+    // GETTER LIBELLE
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+
+    //  SETTER LIBELLE
+    public function setLibelle($libelle): self
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
 
     /**
      * Retourne les nationalités
@@ -130,10 +144,12 @@ class Auteur{
 
         public static function add(Auteur $auteur): int {
 
-        $req = MonPdo::getInstance()->prepare("Insert into auteur (libelle,numNationalite) values(:libelle, :numNationalite)");
-        $lib = $auteur->getLibelle();
+        $req = MonPdo::getInstance()->prepare("Insert into auteur (nom,prenom,numNationalite) values(:nom, :prenom, :numNationalite)");
+        $nom = $auteur->getNom();
+        $prenom = $auteur->getPrenom();
         $numCont = $auteur->numNationalite();
-        $req->bindParam(':libelle', $lib);
+        $req->bindParam(':nom', $nom);
+        $req->bindParam(':prenom', $prenom);
         $req->bindParam(':numNationalite', $numCont);
         $nb = $req->execute();
         return $nb;
@@ -149,12 +165,16 @@ class Auteur{
 
         public static function update(Auteur $auteur) :int  
         {
-            $req = MonPdo::getInstance()->prepare("update auteur set libelle = :libelle, numNationalite=:numCont where num = :id");
+            $req = MonPdo::getInstance()->prepare("update auteur set nom = :nom, prenom = :prenom, numNationalite=:numCont where num = :id");
+
             $id = $auteur->getNum();
-            $lib = $auteur->getLibelle();
+            $nom = $auteur->getNom();
+            $prenom = $auteur->getPrenom();
             $numCont = $auteur->numNationalite();
+
             $req->bindParam(':id', $id);
-            $req->bindParam(':libelle', $lib);
+            $req->bindParam(':nom', $nom);
+            $req->bindParam(':prenom', $prenom);
             $req->bindParam(':numCont', $numCont);
             $nb = $req->execute();
             return $nb;
@@ -184,6 +204,6 @@ class Auteur{
 
 
 
-   
+
 }
 

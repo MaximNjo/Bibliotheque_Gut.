@@ -8,27 +8,27 @@
             <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" class="form-control" id="nom" placeholder="Saisir le nom" name="nom" value="<?php if ($mode == 'Modifier' && isset($auteur)) {
-                    echo $auteur->getLibelle();
+                    echo $auteur->getNom();
                 } ?>">
             </div>
 
             <div class="form-group">
                 <label for="nom">Prenom</label>
                 <input type="text" class="form-control" id="prenom" placeholder="Saisir le prenom" name="prenom" value="<?php if ($mode == 'Modifier' && isset($auteur)) {
-                    echo $auteur->getLibelle();
+                    echo $auteur->getPrenom();
                 } ?>">
             </div>
             
             <!-- CONTINENT -->
             <div class="form-group">
-                <label for="continent">Nationalite</label>
-                <select name="continent" class="form-control">
-                    <?php foreach ($lesContinents as $continent) {
+                <label for="nationalite">Nationalite</label>
+                <select name="nationalite" class="form-control">
+                    <?php foreach ($lesNationalites as $nationalite) {
                         $selection = '';
                         if ($mode == 'Modifier' && isset($auteur)) {
-                            $selection = $continent->getNum() == $auteur->getContinent()->getNum() ? 'selected' : '';
+                            $selection = $nationalite->getNum() == $auteur->getNationalite()->getNum() ? 'selected' : '';
                         }
-                        echo "<option value='" . $continent->getNum() . "'" . $selection . ">" . $continent->getLibelle() . "</option>";
+                        echo "<option value='" . $nationalite->getNum() . "'" . $selection . ">" . $nationalite->getLibelle() . "</option>";
                     } ?>
                 </select>
             </div>

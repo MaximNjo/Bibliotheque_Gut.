@@ -20,12 +20,12 @@ switch ($action){
     break;
     case 'add' : 
         $mode = "Ajouter";
-        $lesNationalites = Nationalite::findAll();
+        $lesNationalites = Nationalite::findAllNat();
         include("vues/auteur/formAuteur.php");
     break;
     case 'update' :
         $mode = "Modifier";
-        $lesNationalites = Nationalite::findAll();
+        $lesNationalites = Nationalite::findAllNat();
         $auteur = Auteur::findById($_GET['num']);
         include("vues/auteur/formAuteur.php");
     break;
@@ -36,11 +36,11 @@ switch ($action){
 
         if ($nb == 1) {
             
-            $_SESSION['message']=["sucess" => "Le auteur a bien été supprimé "];
+            $_SESSION['message']=["sucess" => "L'auteur a bien été supprimé "];
 
         } else {
             
-            $_SESSION['message']=["danger" => "Le auteur n'a pas été supprimer "];
+            $_SESSION['message']=["danger" => "L'auteur n'a pas été supprimer "];
         }
         
         header("location: index.php?uc=auteurs&action=list");
@@ -52,28 +52,29 @@ switch ($action){
         $nationalite = Nationalite::findById($_POST['nationalite']);
         if (empty($_POST['num'])) {
             
-            $auteur->setLibelle($_POST['libelle'])
-                        ->setNationalite($nationalite);
+            $auteur->setNom($_POST['nom'])
+                   ->setPrenom($_POST['prenom'])
+                   ->setNationalite($nationalite);
             $nb = Auteur::add($auteur);
             $message = 'ajouté';
 
         }else { 
 
             $auteur->setNum($_POST['num'])
-                        ->setLibelle($_POST['libelle'])
-                        ->setNationalite($nationalite)       
-                        ;
+                   ->setNom($_POST['nom'])
+                   ->setPrenom($_POST['prenom'])
+                   ->setNationalite($nationalite);
             $nb = Auteur::update($auteur);
             $message = 'modifié';
         }
         // Si sa c'est bien passéS
         if ($nb == 1) {
             
-            $_SESSION['message']=["sucess"=>"La nationalité a bien été $message "];
+            $_SESSION['message']=["sucess"=>"L'auteur a bien été $message "];
 
         } else {
             
-            $_SESSION['message']=["danger"=>"La nationalité a bien été $message "];
+            $_SESSION['message']=["danger"=>"L'auteur a bien été $message "];
 
         }
 
