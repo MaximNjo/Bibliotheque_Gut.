@@ -30,25 +30,25 @@
                     <!-- Champs Saisir libelle -->
                     <div class="col">
                         
-                        <input type="text" class="form-control"  id="libelle" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le nom" name="libelle"  value= "<?php echo $libelle; ?>">
+                        <input type="text" class="form-control"  id="nom" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le nom" name="nom"  value= "<?php echo $nom; ?>">
                         
                     </div>
                     <div class="col">
                         
-                        <input type="text" class="form-control"  id="libelle" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le prenom" name="libelle"  value= "<?php echo $libelle; ?>">
+                        <input type="text" class="form-control"  id="prenom" onInput="document.getElementById('formRecherche').submit()" placeholder="Saisir le prenom" name="prenom"  value= "<?php echo $prenom; ?>">
                         
                     </div>
 
                     <!-- Listes déroulantes des Continents -->
                     <div class="col">  
-                    <select name="continent" class="form-control" onChange="document.getElementById('formRecherche').submit()">
+                    <select name="nationalite" class="form-control" onChange="document.getElementById('formRecherche').submit()">
                         <?php      
                             
-                            echo "<option value='Tous'> Tous les continents </option>";
-                            foreach($lesContinents as $continent){
+                            echo "<option value='Tous'> Toutes les Nationalitées </option>";
+                            foreach($lesNationalites as $nationalite){
                                 
-                                $selection = $continent->getNum() == intval($continentSel) ? 'selected' : '';
-                                echo "<option value='" . $continent->getNum() . "' ". $selection." >". $continent->getLibelle() ."</option>";
+                                $selection = $nationalite->getNum() == intval($nationaliteSel) ? 'selected' : '';
+                                echo "<option value='" . $nationalite->getNum() . "' ". $selection." >". $nationalite->getLibelle() ."</option>";
                                     
                             }
                         ?>

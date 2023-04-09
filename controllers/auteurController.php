@@ -5,30 +5,31 @@ switch ($action){
 
     case 'list':
         // Traitement du formulaire de recherche 
-        $libelle = "";
-        $continentSel="Tous";
-        if (!empty($_POST['libelle']) || !empty($_POST['continent'])){
+        $nom = "";
+        $prenom = "";
+        $nationaliteSel="Tous";
+        if (!empty($_POST['nom']) || !empty($_POST['prenom']) || !empty($_POST['nationalite'])){
             
-            $libelle = $_POST['libelle'];
-            $continentSel = $_POST['continent'];
+            $nom = $_POST['nom'];
+            $prenom = $_POST['prenom'];
+            $nationaliteSel = $_POST['nationalite'];
         }
-        $lesContinents = Continent::findAll();
-        $lesAuteurs = Auteur::findAll($libelle, $continentSel);
+        $lesNationalites = Nationalite::findAllNat();
+        $lesAuteurs = Auteur::findAll($nom, $prenom, $nationaliteSel);
         include('vues/auteur/listeAuteur.php');
     break;
     case 'add' : 
         $mode = "Ajouter";
-        $lesContinents = Continent::findAll();
+        $lesNationalites = Nationalite::findAll();
         include("vues/auteur/formAuteur.php");
     break;
     case 'update' :
         $mode = "Modifier";
-        $lesContinents = Continent::findAll();
+        $lesNationalites = Nationalite::findAll();
         $auteur = Auteur::findById($_GET['num']);
         include("vues/auteur/formAuteur.php");
     break;
     case 'delete' :
-        
 
         $auteur = Auteur::findById($_GET['num']);
         $nb = Auteur::delete($auteur);
@@ -48,11 +49,11 @@ switch ($action){
     case 'validForm' :
 
         $auteur = new Auteur();
-        $continent = Continent::findById($_POST['continent']);
+        $nationalite = Nationalite::findById($_POST['nationalite']);
         if (empty($_POST['num'])) {
             
             $auteur->setLibelle($_POST['libelle'])
-                        ->setContinent($continent);
+                        ->setNationalite($nationalite);
             $nb = Auteur::add($auteur);
             $message = 'ajouté';
 
@@ -60,7 +61,7 @@ switch ($action){
 
             $auteur->setNum($_POST['num'])
                         ->setLibelle($_POST['libelle'])
-                        ->setContinent($continent)       
+                        ->setNationalite($nationalite)       
                         ;
             $nb = Auteur::update($auteur);
             $message = 'modifié';

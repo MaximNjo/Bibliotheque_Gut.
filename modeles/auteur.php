@@ -3,8 +3,9 @@
 class Auteur{
    
     private $num;
-    private $libelle;
-    private $numContinent;
+    private $nom;
+    private $prenom;
+    private $numNationalite;
 
     // Getter de num
     public function getNum()
@@ -20,36 +21,46 @@ class Auteur{
         return $this;
     }
 
-    // Getter de libelle
-    public function getLibelle() : string
+    // GETTER NOM
+    public function getNom()
     {
-        return $this->libelle;
+        return $this->nom;
     }
-
-    // Setter de libelle
-    public function setLibelle(string $libelle) : self
+    // SETTER NOM
+    public function setNom($nom): self
     {
-        $this->libelle = $libelle;
+        $this->nom = $nom;
 
         return $this;
     }
-
-    
-    public function numContinent(): int
+    // GET PRENOM
+    public function getPrenom()
     {
-        return $this->numContinent;
+        return $this->prenom;
+    }
+    // PRENOM
+    public function setPrenom($prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+    
+    public function numNationalite(): int
+    {
+        return $this->numNationalite;
     }
 
   
-    public function getContinent() :Continent
+    public function getNationalite() :Nationalite
     {
-        return Continent::findById($this->numContinent);
+        return Nationalite::findById($this->numNationalite);
     }
 
 
-    public function setContinent(Continent $continent) :self
+    public function setNationalite(Nationalite $continent) :self
     {
-        $this->numContinent = $continent->getNum();
+        $this->numNationalite = $continent->getNum();
 
         return $this;
     }
@@ -63,18 +74,23 @@ class Auteur{
      */
 
 
-    public static function findAll(?string $libelle="", ?string $continent="Tous") : array
+    public static function findAll(?string $nom="", ?string $prenom="", ?string $nationalite ="Tous") : array
     {
         
-        $texteReq = "select a.num as numero, a.nom as 'nom', a.prenom as 'prenom' from auteur a, nationalite n where a.numNationalite=n.num";
-        if($libelle != ""){
-            $texteReq .= " and a.nom like '%" . $libelle . "%'";
+        $texteReq = "select a.num as numero, a.nom as 'nom', a.prenom as 'prenom', n.libelle as 'libNationalite' from auteur a, nationalite n where a.numNationalite=n.num";
+
+        if($nom != ""){
+            $texteReq .= " and a.nom like '%" . $nom . "%'";
+        }
+        if($prenom != ""){
+            $texteReq .= " and a.prenom like '%" . $prenom . "%'";
         }
         
-        if($continent != "Tous"){ 
-            $texteReq .= " and c.num =" .$continent;
+        if($nationalite != "Tous"){ 
+            $texteReq .= " and a.numNationalite =" .$nationalite;
+
         }
-        $texteReq.= " order by n.libelle";
+        $texteReq.= " order by numero";
         $req = MonPdo::getInstance()->prepare($texteReq);
         $req -> setFetchMode(PDO::FETCH_OBJ);
         $req -> execute();
@@ -114,11 +130,11 @@ class Auteur{
 
         public static function add(Auteur $auteur): int {
 
-        $req = MonPdo::getInstance()->prepare("Insert into auteur (libelle,numContinent) values(:libelle, :numContinent)");
+        $req = MonPdo::getInstance()->prepare("Insert into auteur (libelle,numNationalite) values(:libelle, :numNationalite)");
         $lib = $auteur->getLibelle();
-        $numCont = $auteur->numContinent();
+        $numCont = $auteur->numNationalite();
         $req->bindParam(':libelle', $lib);
-        $req->bindParam(':numContinent', $numCont);
+        $req->bindParam(':numNationalite', $numCont);
         $nb = $req->execute();
         return $nb;
     }
@@ -133,10 +149,10 @@ class Auteur{
 
         public static function update(Auteur $auteur) :int  
         {
-            $req = MonPdo::getInstance()->prepare("update auteur set libelle = :libelle, numContinent=:numCont where num = :id");
+            $req = MonPdo::getInstance()->prepare("update auteur set libelle = :libelle, numNationalite=:numCont where num = :id");
             $id = $auteur->getNum();
             $lib = $auteur->getLibelle();
-            $numCont = $auteur->numContinent();
+            $numCont = $auteur->numNationalite();
             $req->bindParam(':id', $id);
             $req->bindParam(':libelle', $lib);
             $req->bindParam(':numCont', $numCont);
@@ -165,5 +181,9 @@ class Auteur{
     }
 
 
+
+
+
+   
 }
 
