@@ -3,5 +3,5 @@ TP BTS SIO
 - [x] Continent 
 - [x] Nationalite
 - [x] Genre
-- [ ] Auteurs
+- [x] Auteurs
 - [ ] Livre
