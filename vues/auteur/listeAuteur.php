@@ -80,7 +80,7 @@
             </tr>
         </thead>
             
-            
+
     <?php
 
         // Affichage des Nationalités

@@ -99,7 +99,6 @@ class Auteur{
         if($prenom != ""){
             $texteReq .= " and a.prenom like '%" . $prenom . "%'";
         }
-        
         if($nationalite != "Tous"){ 
             $texteReq .= " and a.numNationalite =" .$nationalite;
 
@@ -112,6 +111,18 @@ class Auteur{
         return $lesResultats;
 
     }
+
+    public static function findAllAut() :array
+    {
+
+        $req = MonPdo::getInstance() -> prepare("Select * from auteur");
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Auteur');
+        $req->execute();
+        $lesResultats=$req->fetchAll();
+        return $lesResultats;
+
+    }
+
 
 
     /**
