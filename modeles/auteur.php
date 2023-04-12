@@ -3,7 +3,8 @@
 class Auteur{
    
     private $num;
-    private $libelle;
+    private $nom;
+    private $prenom;
     private $numNationalite;
 
     // Getter de num
@@ -20,20 +21,30 @@ class Auteur{
         return $this;
     }
 
-    // Getter de libelle
-    public function getLibelle() : string
+    // GETTER NOM
+    public function getNom()
     {
-        return $this->libelle;
+        return $this->nom;
     }
-
-    // Setter de libelle
-    public function setLibelle(string $libelle) : self
+    // SETTER NOM
+    public function setNom($nom): self
     {
-        $this->libelle = $libelle;
+        $this->nom = $nom;
 
         return $this;
     }
+    // GET PRENOM
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+    // PRENOM
+    public function setPrenom($prenom): self
+    {
+        $this->prenom = $prenom;
 
+        return $this;
+    }
     
     public function numNationalite(): int
     {
@@ -53,8 +64,6 @@ class Auteur{
 
         return $this;
     }
-    
-    
 
     /**
      * Retourne les nationalités
@@ -82,6 +91,18 @@ class Auteur{
         return $lesResultats;
 
     }
+
+    public static function findAllAut() :array
+    {
+
+        $req = MonPdo::getInstance() -> prepare("Select * from auteur");
+        $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Auteur');
+        $req->execute();
+        $lesResultats=$req->fetchAll();
+        return $lesResultats;
+
+    }
+
 
 
     /**
@@ -138,7 +159,8 @@ class Auteur{
             $lib = $auteur->getLibelle();
             $numCont = $auteur->numNationalite();
             $req->bindParam(':id', $id);
-            $req->bindParam(':libelle', $lib);
+            $req->bindParam(':nom', $nom);
+            $req->bindParam(':prenom', $prenom);
             $req->bindParam(':numCont', $numCont);
             $nb = $req->execute();
             return $nb;
@@ -163,6 +185,10 @@ class Auteur{
         return $nb;
 
     }
+
+
+
+
 
 
 }

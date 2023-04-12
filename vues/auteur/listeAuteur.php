@@ -41,14 +41,14 @@
 
                     <!-- Listes déroulantes des Continents -->
                     <div class="col">  
-                    <select name="continent" class="form-control" onChange="document.getElementById('formRecherche').submit()">
+                    <select name="nationalite" class="form-control" onChange="document.getElementById('formRecherche').submit()">
                         <?php      
                             
                             echo "<option value='Tous'> Tous les continents </option>";
                             foreach($lesContinents as $continent){
                                 
-                                $selection = $continent->getNum() == intval($continentSel) ? 'selected' : '';
-                                echo "<option value='" . $continent->getNum() . "' ". $selection." >". $continent->getLibelle() ."</option>";
+                                $selection = $nationalite->getNum() == intval($nationaliteSel) ? 'selected' : '';
+                                echo "<option value='" . $nationalite->getNum() . "' ". $selection." >". $nationalite->getLibelle() ."</option>";
                                     
                             }
                         ?>
@@ -80,7 +80,7 @@
             </tr>
         </thead>
             
-            
+
     <?php
 
         // Affichage des Nationalités
@@ -99,7 +99,7 @@
                         <img src='image/modifier.png'>
                     </a>
                     
-                    <a href='#modalSupression' data-toggle='modal' data-message='Voulez-vous vraiment supprimer cette nationalité ?'  data-suppression='index.php?uc=auteurs&action=delete&num=".$auteur->numero."' >
+                    <a href='#modalSupression' data-toggle='modal' data-message='Voulez-vous vraiment supprimer cette auteur ?'  data-suppression='index.php?uc=auteurs&action=delete&num=".$auteur->numero."' >
                     <img src='image/supprimer.png'>
                     </a>
                 

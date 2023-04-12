@@ -6,11 +6,12 @@
     include "vues/header.php";
     include "vues/messageFlash.php";
     
+    include "modeles/connexionPDO.php";
     include "modeles/continent.php";
     include "modeles/nationalite.php";
     include "modeles/auteur.php";
     include "modeles/genre.php";
-    include "modeles/connexionPDO.php";
+    include "modeles/livre.php";
     
 
     // uc = unité de contrôle (ou tu choisis)
@@ -33,6 +34,9 @@
         break;
         case 'auteurs' :
             include('controllers/auteurController.php');
+        break;
+        case 'livres' :
+            include('controllers/livreController.php');
         break;
 
     }

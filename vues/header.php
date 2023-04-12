@@ -52,8 +52,8 @@
                     Gestion des Livres
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="index.php?uc=genres&action=list">Liste des livres</a>
-                    <a class="dropdown-item" href="index.php?uc=genres&action=add">Ajouter un livres</a>
+                    <a class="dropdown-item" href="index.php?uc=livres&action=list">Liste des livres</a>
+                    <a class="dropdown-item" href="index.php?uc=livres&action=add">Ajouter un livres</a>
                 </div>
             </li>
             <!-- Auteurs -->
