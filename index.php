@@ -21,7 +21,7 @@
     switch($uc){
 
         case 'accueil' :
-            include('vues/Accueil.php');
+            include('vues/accueil.php');
         break;
         case 'continents' :
             include('controllers/continentController.php');

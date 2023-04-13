@@ -72,22 +72,28 @@ class Auteur{
      */
 
 
-    public static function findAll(?string $libelle="", ?string $nationalite="Tous") : array
+    public static function findAll(?string $nom="",?string $prenom="",?string $nationalite="Tous") : array
     {
         
         $texteReq = "select a.num as numero, a.nom as 'nom', a.prenom as 'prenom', n.libelle as 'libNationalite' from auteur a, nationalite n where a.numNationalite=n.num";
-        if($libelle != ""){
-            $texteReq .= " and a.nom like '%" . $libelle . "%'";
+
+        if($nom != ""){
+            $texteReq .= " and a.nom like '%" . $nom . "%'";
+        }
+
+        if($prenom != ""){
+            $texteReq .= " and a.prenom like '%" . $prenom . "%'";
         }
         
         if($nationalite != "Tous"){ 
             $texteReq .= " and c.num =" .$nationalite;
         }
+        
         $texteReq.= " order by a.num";
         $req = MonPdo::getInstance()->prepare($texteReq);
-        $req -> setFetchMode(PDO::FETCH_OBJ);
-        $req -> execute();
-        $lesResultats = $req -> fetchAll();
+        $req->setFetchMode(PDO::FETCH_OBJ);
+        $req->execute();
+        $lesResultats = $req->fetchAll();
         return $lesResultats;
 
     }

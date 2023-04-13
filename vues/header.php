@@ -26,7 +26,7 @@
 </head>
 <body>
      
- 
+                   
     
 <nav class="navbar navbar-expand-lg navbar-light couleur">
     <a class="navbar-brand" href="index.php"> <img src="image/livre.png" width="40"> <strong>Ma Bibliothèque</strong></a>

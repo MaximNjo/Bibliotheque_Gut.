@@ -91,7 +91,7 @@
                     </a>
                     
                     <a href='#modalSupression' data-toggle='modal' data-message='Voulez-vous vraiment supprimer cette nationalité ?'  data-suppression='index.php?uc=nationalites&action=delete&num=".$nationalite->numero."' >
-                    <img src='image/supprimer.png'> 
+                        <img src='image/supprimer.png'> 
                     </a>
                 
                 </td>

@@ -9,11 +9,17 @@ switch ($action){
         if (!empty($_POST['auteur'])){
             
             $auteurSel = $_POST['auteur'];
-
         }
+
+        $genreSel="Tous";
+        if (!empty($_POST['genre'])){
+            
+            $genreSel = $_POST['genre'];
+        }
+
         $lesAuteurs = Auteur::findAllAut();
-        // $lesGenres = Genres::findAllAut();
-        $lesLivres = Livre::findAll($auteurSel);
+        $lesGenres = Genre::findAll();
+        $lesLivres = Livre::findAll($auteurSel, $genreSel);
         include('vues/livre/listeLivre.php');
     break;
     case 'add' : 

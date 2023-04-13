@@ -55,7 +55,6 @@ class Continent{
 
     public static function findAll() :array
     {
-
         $req = MonPdo::getInstance() -> prepare("Select * from continent");
         $req->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE,'Continent');
         $req->execute();

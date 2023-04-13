@@ -63,16 +63,21 @@ class Livre{
      */
 
 
-    public static function findAll(?string $auteur ="Tous") : array
+    public static function findAll(?string $auteur ="Tous", ?string $genre="" ) : array
     {
         
-        $texteReq = "select l.num as numero, l.isbn as 'isbn' ,l.titre as 'titre', l.prix as 'prix', l.editeur as 'editeur', l.annee as 'annee', l.langue as 'langue' from livre l, livre a where a.numAuteur=a.num";
+        $texteReq = "select l.num as numero, l.isbn as 'isbn' ,l.titre as 'titre', l.prix as 'prix', l.editeur as 'editeur', l.annee as 'annee', l.langue as 'langue', a.nom as 'nomA', a.prenom as 'prenomA', g.libelle as 'genre' from livre l, auteur a, genre g where l.numAuteur=a.num and l.numGenre = g.num";
 
         
+        // if($auteur != ""){ 
+        //     $texteReq .= " and l.genre like '%" . $genre . "%'";
+
+        // }
         if($auteur != "Tous"){ 
             $texteReq .= " and a.numAuteur =" .$auteur;
 
         }
+
         $req = MonPdo::getInstance()->prepare($texteReq);
         $req -> setFetchMode(PDO::FETCH_OBJ);
         $req -> execute();

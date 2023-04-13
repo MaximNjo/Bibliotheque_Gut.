@@ -63,10 +63,10 @@
                             <?php      
                                 
                                 echo "<option value='Tous'> Tous les Genres </option>";
-                                foreach($lesAuteurs as $auteur){
-                                    
-                                    $selection = $auteur->getNum() == intval($auteurSel) ? 'selected' : '';
-                                    echo "<option value='" . $auteur->getNum() . "' ". $selection." >". $auteur->getPrenom() ."</option>";
+                                foreach($lesGenres as $genre){
+
+                                    $selection = $genre->getNum() == intval($genreSel) ? 'selected' : '';
+                                    echo "<option value='" . $genre->getNum() . "' ". $selection." >". $genre->getLibelle() ."</option>";
                                         
                                 }
                             ?>
@@ -115,8 +115,8 @@
             echo "<td>$livre->editeur</td>";
             echo "<td>$livre->annee</td>";
             echo "<td>$livre->langue</td>";
-            echo "<td>$auteur->Nom</td>";
-            echo "<td></td>";
+            echo "<td>$livre->nomA $livre->prenomA</td>";
+            echo "<td>$livre->genre</td>";
             echo"
                 <td>
 
